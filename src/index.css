@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 232 48% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 232 48% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 232 48% 15%;
+
+    --primary: 232 48% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 199 76% 79%;
+    --secondary-foreground: 232 48% 20%;
+
+    --muted: 210 10% 95%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 175 96% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 232 48% 32%;
+
+    --radius: 0.75rem;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 76% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 232 48% 15%;
+    --sidebar-primary: 232 48% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 96% 95%;
+    --sidebar-accent-foreground: 232 48% 32%;
+    --sidebar-border: 210 15% 92%;
+    --sidebar-ring: 232 48% 32%;
+
+    --chart-1: 175 96% 30%;
+    --chart-2: 232 48% 32%;
+    --chart-3: 199 76% 55%;
+    --chart-4: 0 0% 64%;
+    --chart-5: 38 92% 50%;
+
+    --neutral: 0 0% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  .animate-count-up {
+    animation: count-up 0.6s ease-out forwards;
+  }
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
