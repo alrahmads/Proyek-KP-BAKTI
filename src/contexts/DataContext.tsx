@@ -21,8 +21,8 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     const fetchAll = async () => {
       try {
         const [aksesRes, bumdesRes] = await Promise.all([
-          fetch("https://opensheet.elk.sh/1ddok_wIwD-Rm3QekmYCdbRqembstJzU9PSSzJrtRRW8/data"),
-          fetch("https://opensheet.elk.sh/1WTWCxr7BYb1WmkKXwUhzSJPelIQF2coaOYoJMSiLp3U/data"),
+          fetch("https://opensheet.elk.sh/1N6AjXCPp__6qwRZRJ03wM7JHZ_BKtjPsHjJw9sIPHdI/data"),
+          fetch("https://opensheet.elk.sh/1cs1FII5J6zEjtyx9XyypWxzoqjqHHrxxvoutsfUbqOY/data"),
         ]);
 
         const aksesJson = await aksesRes.json();
