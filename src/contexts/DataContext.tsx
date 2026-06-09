@@ -213,7 +213,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
               npwpBumdes: d["NPWP BUMDes"] || "",
               ktpDirekturBumdes: d["KTP Direktur BUMDes"] || "",
               nibBumdes: d["NIB BUMDes"] || "",
-              apbdes: d["APBDES"] || "",
+              apbdes: d["PerDes APBDes"] || "",
               logoBumdes: d["Logo BUMDes"] || "",
 
               // ISP
@@ -229,8 +229,8 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
               ulo: d["ULO ISP"] || "",
               npwpIsp: d["NPWP ISP"] || "",
               logoIsp: d["Logo ISP"] || "",
-              ktpDirekturIsp: d["KTP DIREKTUR ISP"] || "",
-              companyProfile: d["COMPANY PROFILE ISP"] || "",
+              ktpDirekturIsp: d["KTP Direktur ISP"] || "",
+              companyProfile: d["Company Profile"] || "",
               dokumenRKUB: d["Dokumen RFI/RKUB"] || "",
 
               // metadata

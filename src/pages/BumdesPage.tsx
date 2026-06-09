@@ -202,10 +202,10 @@ export default function BumdesPage() {
       const pksDocs = [
         { key: "dokumenPks" },
 
-        { key: "perpanjanganPks1" },
+        { key: "suratPerpanjanganPks1" },
         { key: "dokumenPerpanjanganPks1" },
 
-        { key: "perpanjanganPks2" },
+        { key: "suratPerpanjanganPks2" },
         { key: "dokumenPerpanjanganPks2" },
       ];
 
@@ -260,9 +260,9 @@ export default function BumdesPage() {
     "pergantianIsp",
 
     "dokumenPks",
-    "perpanjanganPks1",
+    "suratPerpanjanganPks1",
     "dokumenPerpanjanganPks1",
-    "perpanjanganPks2",
+    "suratPerpanjanganPks2",
     "dokumenPerpanjanganPks2",
   ];
 
@@ -893,7 +893,7 @@ export default function BumdesPage() {
                         <TableHead></TableHead>
                         <TableHead className="text-[11px] font-bold">No</TableHead>
                         <TableHead className="text-[11px] font-bold">Nama Mitra Konektivitas Mandiri</TableHead>
-                        <TableHead className="text-[11px] font-bold">PIC Mitra Konektivitas Mandiri</TableHead>
+                        <TableHead className="text-[11px] font-bold">PIC BUMDes</TableHead>
                         <TableHead className="text-[11px] font-bold">PIC ISP</TableHead>
                         <TableHead className="text-[11px] font-bold">Status Berkas</TableHead>
                       </TableRow>
@@ -962,7 +962,7 @@ export default function BumdesPage() {
                                   <div className="p-4 space-y-4">
 
                                     <div className="text-sm font-semibold">
-                                      Kelengkapan Dokumen — {latest.namaBumdes} (ISP Pengganti)
+                                      Kelengkapan Dokumen — {latest.namaBumdes} (ISP Aktif)
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -970,20 +970,20 @@ export default function BumdesPage() {
                                       {/* ================= BUMDES ================= */}
                                       <div className="border rounded-lg p-3 bg-white">
                                         <p className="text-xs font-semibold mb-2 flex items-center gap-2">
-                                          📁 Berkas Mitra Konektivitas Mandiri
+                                          📁 Berkas BUMDes
                                         </p>
 
                                         <div className="space-y-2 text-xs">
 
                                           {[
-                                            { label: "Surat Peminatan", link: latest.suratPeminatanBumdes },
-                                            { label: "Perdes", link: latest.perdesPendirian },
-                                            { label: "Struktur", link: latest.strukturBumdes },
-                                            { label: "NPWP", link: latest.npwpBumdes },
-                                            { label: "KTP Direktur", link: latest.ktpDirekturBumdes },
-                                            { label: "NIB", link: latest.nibBumdes },
-                                            { label: "APBDes", link: latest.apbdes },
-                                            { label: "Logo", link: latest.logoBumdes },
+                                            { label: "Surat Peminatan BUMDes", link: latest.suratPeminatanBumdes },
+                                            { label: "Perdes Pendirian BUMDes", link: latest.perdesPendirian },
+                                            { label: "Struktur BUMDes", link: latest.strukturBumdes },
+                                            { label: "NPWP BUMDes", link: latest.npwpBumdes },
+                                            { label: "KTP Direktur BUMDes", link: latest.ktpDirekturBumdes },
+                                            { label: "NIB BUMDes", link: latest.nibBumdes },
+                                            { label: "PerDes APBDes", link: latest.apbdes },
+                                            { label: "Logo BUMDes", link: latest.logoBumdes },
                                           ].map((doc, idx) => (
                                             <div key={idx} className="flex justify-between items-center border rounded px-2 py-1">
                                               <span>{doc.label}</span>
@@ -1019,17 +1019,17 @@ export default function BumdesPage() {
 
                                           {[
                                             { label: "Surat Peminatan ISP", link: latest.suratPeminatanIsp },
-                                            { label: "Akta ISP", link: latest.aktaIsp },
-                                            { label: "SK Kemenkumham", link: latest.skKemenkumham },
+                                            { label: "Akta Pendirian ISP", link: latest.aktaIsp },
+                                            { label: "SK Kemenkumham ISP", link: latest.skKemenkumham },
                                             { label: "NIB ISP", link: latest.nibIsp },
-                                            { label: "Izin Telekomunikasi", link: latest.izinTelekom },
-                                            { label: "Jartaplok", link: latest.jartaplok },
-                                            { label: "ULO", link: latest.ulo },
+                                            { label: "Izin Penyelenggara Telekomunikasi ISP", link: latest.izinTelekom },
+                                            { label: "Jartaplok ISP", link: latest.jartaplok },
+                                            { label: "ULO ISP", link: latest.ulo },
                                             { label: "NPWP ISP", link: latest.npwpIsp },
                                             { label: "Logo ISP", link: latest.logoIsp },
                                             { label: "KTP Direktur ISP", link: latest.ktpDirekturIsp },
                                             { label: "Company Profile", link: latest.companyProfile },
-                                            { label: "RFI/RKUB", link: latest.dokumenRKUB },
+                                            { label: "Dokumen RFI/RKUB", link: latest.dokumenRKUB },
                                             ...(isValidLink(pergantianLink)
                                               ? [{ label: "Dokumen Pergantian ISP", link: pergantianLink }]
                                               : []),
@@ -1069,11 +1069,11 @@ export default function BumdesPage() {
                                           {[
                                             { label: "Dokumen PKS", link: latest.dokumenPks },
 
-                                            { label: "Perpanjangan PKS 1", link: latest.perpanjanganPks1 },
-                                            { label: "Dok PKS 1", link: latest.dokumenPerpanjanganPks1 },
+                                            { label: "Surat Permohonan Perpanjangan PKS I", link: latest.suratPerpanjanganPks1 },
+                                            { label: "Dokumen Perpanjangan PKS I", link: latest.dokumenPerpanjanganPks1 },
 
-                                            { label: "Perpanjangan PKS 2", link: latest.perpanjanganPks2 },
-                                            { label: "Dok PKS 2", link: latest.dokumenPerpanjanganPks2 },
+                                            { label: "Surat Permohonan Perpanjangan PKS II", link: latest.suratPerpanjanganPks2 },
+                                            { label: "Dokumen Perpanjangan PKS II", link: latest.dokumenPerpanjanganPks2 },
                                           ].map((doc, idx) => (
                                             <div key={idx} className="flex justify-between items-center border rounded px-2 py-1">
                                               <span>{doc.label}</span>
@@ -1143,14 +1143,14 @@ export default function BumdesPage() {
                                                         <p className="text-xs font-semibold mb-2">📁 Berkas BUMDes</p>
                                                         <div className="space-y-2 text-xs">
                                                           {[
-                                                            { label: "Surat Peminatan", link: h.suratPeminatanBumdes },
-                                                            { label: "Perdes", link: h.perdesPendirian },
-                                                            { label: "Struktur", link: h.strukturBumdes },
-                                                            { label: "NPWP", link: h.npwpBumdes },
-                                                            { label: "KTP Direktur", link: h.ktpDirekturBumdes },
-                                                            { label: "NIB", link: h.nibBumdes },
-                                                            { label: "APBDes", link: h.apbdes },
-                                                            { label: "Logo", link: h.logoBumdes },
+                                                            { label: "Surat Peminatan BUMDes", link: h.suratPeminatanBumdes },
+                                                            { label: "Perdes Pendirian BUMDes", link: h.perdesPendirian },
+                                                            { label: "Struktur BUMDes", link: h.strukturBumdes },
+                                                            { label: "NPWP BUMDes", link: h.npwpBumdes },
+                                                            { label: "KTP Direktur BUMDes", link: h.ktpDirekturBumdes },
+                                                            { label: "NIB BUMDes", link: h.nibBumdes },
+                                                            { label: "PerDes APBDes", link: h.apbdes },
+                                                            { label: "Logo BUMDes", link: h.logoBumdes },
                                                           ].map((doc, i) => (
                                                             <div key={i} className="flex justify-between items-center border rounded px-2 py-1">
                                                               <span>{doc.label}</span>
@@ -1180,17 +1180,17 @@ export default function BumdesPage() {
                                                         <div className="space-y-2 text-xs">
                                                           {[
                                                             { label: "Surat Peminatan ISP", link: h.suratPeminatanIsp },
-                                                            { label: "Akta ISP", link: h.aktaIsp },
-                                                            { label: "SK Kemenkumham", link: h.skKemenkumham },
+                                                            { label: "Akta Pendirian ISP", link: h.aktaIsp },
+                                                            { label: "SK Kemenkumham ISP", link: h.skKemenkumham },
                                                             { label: "NIB ISP", link: h.nibIsp },
-                                                            { label: "Izin Telekomunikasi", link: h.izinTelekom },
-                                                            { label: "Jartaplok", link: h.jartaplok },
-                                                            { label: "ULO", link: h.ulo },
+                                                            { label: "Izin Penyelenggara Telekomunikasi ISP", link: h.izinTelekom },
+                                                            { label: "Jartaplok ISP", link: h.jartaplok },
+                                                            { label: "ULO ISP", link: h.ulo },
                                                             { label: "NPWP ISP", link: h.npwpIsp },
                                                             { label: "Logo ISP", link: h.logoIsp },
                                                             { label: "KTP Direktur ISP", link: h.ktpDirekturIsp },
                                                             { label: "Company Profile", link: h.companyProfile },
-                                                            { label: "RFI/RKUB", link: h.dokumenRKUB },
+                                                            { label: "Dokumen RFI/RKUB", link: h.dokumenRKUB },
                                                           ].map((doc, i) => (
                                                             <div key={i} className="flex justify-between items-center border rounded px-2 py-1">
                                                               <span>{doc.label}</span>
@@ -1220,10 +1220,10 @@ export default function BumdesPage() {
                                                         <div className="space-y-2 text-xs">
                                                           {[
                                                             { label: "Dokumen PKS", link: h.dokumenPks },
-                                                            { label: "Perpanjangan PKS 1", link: h.perpanjanganPks1 },
-                                                            { label: "Dok PKS 1", link: h.dokumenPerpanjanganPks1 },
-                                                            { label: "Perpanjangan PKS 2", link: h.perpanjanganPks2 },
-                                                            { label: "Dok PKS 2", link: h.dokumenPerpanjanganPks2 },
+                                                            { label: "Surat Permohonan Perpanjangan PKS I", link: h.suratPerpanjanganPks1 },
+                                                            { label: "Dokumen Perpanjangan PKS I", link: h.dokumenPerpanjanganPks1 },
+                                                            { label: "Surat Permohonan Perpanjangan PKS II", link: h.suratPerpanjanganPks2 },
+                                                            { label: "Dokumen Perpanjangan PKS II", link: h.dokumenPerpanjanganPks2 },
                                                           ].map((doc, i) => (
                                                             <div key={i} className="flex justify-between items-center border rounded px-2 py-1">
                                                               <span>{doc.label}</span>
