@@ -13,11 +13,14 @@ const DataContext = createContext<DataContextType>({
 });
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
+  console.log("BUILD VERSION 2025-06-15-01");
+
   const [aksesData, setAksesData] = useState<any[]>([]);
   const [bumdesData, setBumdesData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("BUILD VERSION 2025-06-15-01");
     const fetchAll = async () => {
       try {
         const [aksesRes, bumdesRes] = await Promise.all([
