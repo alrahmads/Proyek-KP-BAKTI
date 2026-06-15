@@ -13,14 +13,12 @@ const DataContext = createContext<DataContextType>({
 });
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
-  console.log("BUILD VERSION 2025-06-15-01");
 
   const [aksesData, setAksesData] = useState<any[]>([]);
   const [bumdesData, setBumdesData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("BUILD VERSION 2025-06-15-01");
     const fetchAll = async () => {
       try {
         const [aksesRes, bumdesRes] = await Promise.all([
@@ -149,33 +147,12 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
             })();
 
             // 🔥 DAYS LEFT dari effective date
-            // const daysLeft = effectiveExpiryDate
-            //   ? Math.ceil(
-            //       (effectiveExpiryDate.getTime() - new Date().getTime()) /
-            //         (1000 * 60 * 60 * 24)
-            //     )
-            //   : null;
-
-            const daysLeft = (() => {
-              if (!effectiveExpiryDate) return null;
-
-              const today = new Date();
-              today.setHours(0, 0, 0, 0);
-
-              const expiry = new Date(effectiveExpiryDate);
-              expiry.setHours(0, 0, 0, 0);
-
-              return Math.floor(
-                (expiry.getTime() - today.getTime()) /
-                  (1000 * 60 * 60 * 24)
-              );
-            })();
-
-            console.log({
-              bumdes: d["BUMDes/Badan Usaha"],
-              effectiveExpiryDate,
-              daysLeft,
-            });
+            const daysLeft = effectiveExpiryDate
+              ? Math.ceil(
+                  (effectiveExpiryDate.getTime() - new Date().getTime()) /
+                    (1000 * 60 * 60 * 24)
+                )
+              : null;
 
             // 🔥 WARNING LEVEL
             const warningLevel =
