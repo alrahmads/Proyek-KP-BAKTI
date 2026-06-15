@@ -41,11 +41,15 @@ export function NotificationProvider({ children }: any) {
         isRead: false,
       }));
 
-    // ✅ merge (biar read ga hilang)
+    // ✅ update data terbaru, tapi pertahankan status baca
     setNotifications((prev) => {
       return generated.map((g) => {
         const existing = prev.find((p) => p.id === g.id);
-        return existing ? existing : g;
+
+        return {
+          ...g,
+          isRead: existing?.isRead ?? false,
+        };
       });
     });
   }, [data]);
