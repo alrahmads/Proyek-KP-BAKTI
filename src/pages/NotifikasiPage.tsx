@@ -10,15 +10,7 @@ export default function NotifikasiPage() {
   const navigate = useNavigate();
 
   const { notifications, markAsRead, markAllAsRead } = useNotification();
-  console.log(
-    "DEPLOY NOTIFICATIONS",
-    notifications.map(n => ({
-      title: n.title,
-      desc: n.desc,
-      type: n.type,
-      bumdesId: n.bumdesId,
-    }))
-  );
+
   const [filter, setFilter] = useState<"all" | "unread">("all");
 
   const filteredNotif =
