@@ -1,13 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useNotification } from "@/contexts/NotificationContext";
 import {
   LayoutDashboard,
   Wifi,
   Building2,
-  Settings,
   Bell,
   ChevronLeft,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import baktiLogo from "@/assets/bakti-komdigi-logo.png";
@@ -18,7 +18,7 @@ const menuItems = [
   { title: "Akses Internet", path: "/akses-internet", icon: Wifi },
   { title: "Program Konektivitas Mandiri", path: "/bumdes", icon: Building2 },
   { title: "Notifikasi", path: "/notifikasi", icon: Bell },
-  { title: "Cluster", path: "/cluster", icon: Boxes },
+  { title: "Pengelompokan", path: "/cluster", icon: Boxes },
 ];
 
 export function Sidebar({
@@ -30,10 +30,24 @@ export function Sidebar({
 }) {
   const { pathname } = useLocation();
   const { unreadCount } = useNotification();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => {
     if (path === "/") return pathname === "/";
     return pathname.startsWith(path);
+  };
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm(
+      "Apakah Anda yakin ingin logout?"
+    );
+
+    if (!confirmLogout) return;
+
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+
+    navigate("/login");
   };
 
   return (
@@ -114,6 +128,17 @@ export function Sidebar({
           ))}
         </ul>
       </nav>
+
+      {/* Logout */}
+      <div className="px-3 pb-3">
+        <button
+          onClick={handleLogout}
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 transition-colors"
+        >
+          <LogOut className="h-5 w-5" />
+          {!collapsed && <span>Logout</span>}
+        </button>
+      </div>
 
       {/* Collapse */}
       <div className="border-t border-sidebar-border p-3">

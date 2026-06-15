@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { FilterProvider } from "@/contexts/FilterContext";
-import { DataProvider } from "@/contexts/DataContext"; // ✅ TAMBAH INI
+import { DataProvider } from "@/contexts/DataContext";
 import { NotificationProvider } from "@/contexts/NotificationContext";
 
 import OverviewPage from "./pages/OverviewPage";
@@ -13,6 +13,8 @@ import BumdesPage from "./pages/BumdesPage";
 import NotifikasiPage from "./pages/NotifikasiPage";
 import ClusterPage from "./pages/ClusterPage";
 import NotFound from "./pages/NotFound";
+import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -21,23 +23,65 @@ const App = () => (
     <TooltipProvider>
       <DataProvider>
         <FilterProvider>
-          <NotificationProvider> {/* ✅ TAMBAH DI SINI */}
+          <NotificationProvider>
             
             <Toaster />
             <Sonner />
 
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<OverviewPage />} />
-                <Route path="/akses-internet" element={<AksesInternetPage />} />
-                <Route path="/bumdes" element={<BumdesPage />} />
-                <Route path="/notifikasi" element={<NotifikasiPage />} />
-                <Route path="/cluster" element={<ClusterPage />} />
+                <Route path="/login" element={<LoginPage />} />
+
+                <Route
+                  path="/"
+                  element={
+                    <ProtectedRoute>
+                      <OverviewPage />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path="/akses-internet"
+                  element={
+                    <ProtectedRoute>
+                      <AksesInternetPage />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path="/bumdes"
+                  element={
+                    <ProtectedRoute>
+                      <BumdesPage />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path="/notifikasi"
+                  element={
+                    <ProtectedRoute>
+                      <NotifikasiPage />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path="/cluster"
+                  element={
+                    <ProtectedRoute>
+                      <ClusterPage />
+                    </ProtectedRoute>
+                  }
+                />
+
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
 
-          </NotificationProvider> {/* ✅ */}
+          </NotificationProvider>
         </FilterProvider>
       </DataProvider>
     </TooltipProvider>
