@@ -149,12 +149,33 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
             })();
 
             // 🔥 DAYS LEFT dari effective date
-            const daysLeft = effectiveExpiryDate
-              ? Math.ceil(
-                  (effectiveExpiryDate.getTime() - new Date().getTime()) /
-                    (1000 * 60 * 60 * 24)
-                )
-              : null;
+            // const daysLeft = effectiveExpiryDate
+            //   ? Math.ceil(
+            //       (effectiveExpiryDate.getTime() - new Date().getTime()) /
+            //         (1000 * 60 * 60 * 24)
+            //     )
+            //   : null;
+
+            const daysLeft = (() => {
+              if (!effectiveExpiryDate) return null;
+
+              const today = new Date();
+              today.setHours(0, 0, 0, 0);
+
+              const expiry = new Date(effectiveExpiryDate);
+              expiry.setHours(0, 0, 0, 0);
+
+              return Math.floor(
+                (expiry.getTime() - today.getTime()) /
+                  (1000 * 60 * 60 * 24)
+              );
+            })();
+
+            console.log({
+              bumdes: d["BUMDes/Badan Usaha"],
+              effectiveExpiryDate,
+              daysLeft,
+            });
 
             // 🔥 WARNING LEVEL
             const warningLevel =
