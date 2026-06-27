@@ -24,7 +24,7 @@ export default function LoginPage() {
     try {
       setLoading(true);
 
-      const response = await fetch("/data/users_login.xlsx");
+      const response = await fetch("/data/authData.xlsx");
 
       if (!response.ok) {
         throw new Error("File users_login.xlsx tidak ditemukan");
